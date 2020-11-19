@@ -12,7 +12,8 @@
     <artifactId>dubbo-demo-provider</artifactId>
 
     <properties>
-        <dubbo.version>2.7.7</dubbo.version>
+        <dubbo.version>2.5.5</dubbo.version>
+        <zkclient.version>0.10</zkclient.version>
     </properties>
 
     <dependencies>
@@ -21,16 +22,24 @@
             <artifactId>dubbo-demo-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <!-- Dubbo依赖 -->
         <dependency>
-            <groupId>org.apache.dubbo</groupId>
+            <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
             <version>${dubbo.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+        <!--zookeeper的客户端依赖-->
         <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-dependencies-zookeeper</artifactId>
-            <version>${dubbo.version}</version>
-            <type>pom</type>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>${zkclient.version}</version>
         </dependency>
     </dependencies>
 

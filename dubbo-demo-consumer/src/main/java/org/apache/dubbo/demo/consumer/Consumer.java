@@ -10,13 +10,13 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
  */
 public class Consumer {
     public static void main(String[] args) throws Exception {
-        FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("D:/yonyou/ideaProject/yuncai/dubbo-demo/dubbo-demo-consumer/src/main/resources/consumer.xml");
-//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"consumer.xml"});
+//        FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("D:/yonyou/ideaProject/yuncai/dubbo-demo/dubbo-demo-consumer/src/main/resources/consumer.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"consumer.xml"});
         context.start();
         // Obtaining a remote service proxy
         DemoService demoService = (DemoService)context.getBean("demoService");
         // Executing remote methods
-        String hello = demoService.sayHello("world");
+        String hello = demoService.sayHello("dubbo");
         // Display the call result
         System.out.println(hello);
     }

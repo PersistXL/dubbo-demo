@@ -10,8 +10,8 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
  */
 public class Provider {
     public static void main(String[] args) throws Exception {
-//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"provider.xml"});
-        FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("D:/yonyou/ideaProject/yuncai/dubbo-demo/dubbo-demo-provider/src/main/resources/provider.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"provider.xml"});
+//        FileSystemXmlApplicationContext context = new FileSystemXmlApplicationContext("D:/yonyou/ideaProject/yuncai/dubbo-demo/dubbo-demo-provider/src/main/resources/provider.xml");
         context.start();
         System.out.println("Provider started.");
         DemoService demoService = (DemoService)context.getBean("providerService");
